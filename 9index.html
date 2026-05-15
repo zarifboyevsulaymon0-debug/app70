@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Finder</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    font-family:Arial;
+}
+
+.container{
+    width:420px;
+    background:#1e293b;
+    padding:25px;
+    border-radius:18px;
+    color:white;
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.recipe{
+    background:#334155;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+    text-align:left;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Recipe Finder</h2>
+
+    <input type="text"
+    id="food"
+    placeholder="Masalan: tuxum">
+
+    <button onclick="findRecipe()">
+        Find Recipe
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function findRecipe(){
+
+    let food =
+    document.getElementById("food").value.toLowerCase();
+
+    let result =
+    document.getElementById("result");
+
+    let recipes = {
+
+        tuxum:
+        "🍳 Tuxum, yog', tuz bilan omlet tayyorlash mumkin.",
+
+        kartoshka:
+        "🥔 Kartoshkadan fri yoki pyure qilish mumkin.",
+
+        guruch:
+        "🍚 Guruchdan palov yoki sushi tayyorlash mumkin.",
+
+        tovuq:
+        "🍗 Tovuqdan grill yoki sho'rva qilish mumkin."
+    };
+
+    if(recipes[food]){
+
+        result.innerHTML =
+        `<div class="recipe">${recipes[food]}</div>`;
+
+    } else {
+
+        result.innerHTML =
+        `<div class="recipe">Retsept topilmadi.</div>`;
+    }
+}
+
+</script>
+
+</body>
+</html>
